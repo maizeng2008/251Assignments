@@ -175,7 +175,7 @@ public class islands {
 	        							{
 	        								//countForThisMethod++;
 		        							//theMap.count--;
-	        								if(theMap.image[k-1][m-1] == '#')
+	        								if(theMap.image[k-1][m-1] == 0)
 	        								{
 	        									System.out.println("this happen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n\n\n");
 	        									theMap.count--;
@@ -283,7 +283,7 @@ public class islands {
 
 	private int findTheNearestIslandOnTheLeft(int j, int k, int[][] image) {
 		// TODO Auto-generated method stub
-		for(int m = j - 1; m > 0; m--)
+		for(int m = j - 1; m >= 0; m--)
 		{
 			if(image[k][m] != 0)
 			{
