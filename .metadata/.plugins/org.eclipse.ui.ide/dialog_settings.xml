@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/zengmai-river/Desktop/COMP251/Assign/A5/HW5"/>
+		<item value="/Users/zengmai-river/Desktop/COMP251/Assign/A4"/>
+		<item value="/Users/zengmai-river/Desktop/COMP251/Assign/COMP251HW3_F2018"/>
+		<item value="/Users/zengmai-river/Desktop/COMP251/other/COMP251HW2"/>
+	</list>
+	<section name="ExternalProjectImportWizard">
+	</section>
+</section>
