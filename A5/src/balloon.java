@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.*;
 
 
@@ -117,17 +118,23 @@ public class balloon {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		long startTime = System.currentTimeMillis();
+		//long startTime = System.currentTimeMillis();
         String file = args[0];
         balloon g = new balloon(file);
         int solutions[] = calSubset(g);
-        for(int i = 0; i < solutions.length; i++)
-        {
-        		System.out.println("" + solutions[i]);
-        }
-        long stopTime = System.currentTimeMillis();
-        long elapsedTime = stopTime - startTime;
-        System.out.println(elapsedTime);
+        try (PrintWriter out = new PrintWriter("testBalloons_solution.txt")) {
+	        for(int i = 0; i < solutions.length; i++)
+	        {
+	        		out.println("" + solutions[i]);
+	        }
+	        out.close();
+        } catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        //long stopTime = System.currentTimeMillis();
+        //long elapsedTime = stopTime - startTime;
+        //System.out.println(elapsedTime);
         //System.out.println(g);
 	}
 

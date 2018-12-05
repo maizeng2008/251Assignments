@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -34,7 +35,7 @@ public class islands {
 		try {
 			f = new Scanner(new File(file));
 	        number_problems = Integer.parseInt(f.nextLine()); /*first line is the number of problems*/
-	        System.out.println("the number of problems is "+number_problems);
+	        //System.out.println("the number of problems is "+number_problems);
 	        for(int i = 0; i < number_problems; i++)
 	        {
 	        		
@@ -73,14 +74,14 @@ public class islands {
 	        						theMap.image[k][j] = countForThisLine;
 	        						countForThisLine++;
 	        						theMap.count++;
-	        						System.out.println("it is because (theLine.charAt(j) == '-' && j == 0) now count is "+theMap.count);
+	        						//System.out.println("it is because (theLine.charAt(j) == '-' && j == 0) now count is "+theMap.count);
 	        					}
 	        					else if(theLine.charAt(j) == '-' && j > 0 && theLine.charAt(j - 1) == '#')
 	        					{
 	        						theMap.image[k][j] = countForThisLine;
 	        						countForThisLine++;
 	        						theMap.count++;
-	        						System.out.println("it is because (theLine.charAt(j) == '-' && j > 0 && theLine.charAt(j - 1) == '#') now count is "+theMap.count);
+	        						//System.out.println("it is because (theLine.charAt(j) == '-' && j > 0 && theLine.charAt(j - 1) == '#') now count is "+theMap.count);
 	        					}
 	        					else if(theLine.charAt(j) == '-' && j > 0 && theLine.charAt(j - 1) == '-')
 	        					{
@@ -103,7 +104,7 @@ public class islands {
 	        							theMap.image[k][j] = countForThisLine;
 	        							countForThisLine++;
 	        							theMap.count++;
-	        							System.out.println("it is because (theLine.charAt(j) == '-' && j == 0 && theMap.image[k-1][j] == 0) (theLine.charAt(j+1) == '#') now count is "+theMap.count);
+	        							//System.out.println("it is because (theLine.charAt(j) == '-' && j == 0 && theMap.image[k-1][j] == 0) (theLine.charAt(j+1) == '#') now count is "+theMap.count);
 	        						}
 	        						else if(theLine.charAt(j+1) == '-')
 	        						{
@@ -117,7 +118,7 @@ public class islands {
 	        								theMap.image[k][j] = countForThisLine;
 		        							countForThisLine++;
 		        							theMap.count++;
-		        							System.out.println("it is because (theLine.charAt(j) == '-' && j == 0 && theMap.image[k-1][j] == 0) (theLine.charAt(j+1) == '-') (theMap.image[k-1][j+1] == 0) now count is "+theMap.count);
+		        							//System.out.println("it is because (theLine.charAt(j) == '-' && j == 0 && theMap.image[k-1][j] == 0) (theLine.charAt(j+1) == '-') (theMap.image[k-1][j+1] == 0) now count is "+theMap.count);
 	        							}	
 	        						}
 	        					}
@@ -177,7 +178,7 @@ public class islands {
 		        							//theMap.count--;
 	        								if(theMap.image[k-1][m-1] == 0)
 	        								{
-	        									System.out.println("this happen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n\n\n");
+	        									//System.out.println("this happen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n\n\n");
 	        									theMap.count--;
 	        									countForThisLine--;
 	        								}
@@ -203,7 +204,7 @@ public class islands {
         							theMap.image[k][j] = countForThisLine;
         							countForThisLine++;
         							theMap.count++;
-        							System.out.println("it is because (theLine.charAt(j) == '-' && j == theLine.length() - 1 && theMap.image[k-1][j] == 0 && theMap.image[k][j-1] == 0) now count is "+theMap.count);
+        							//System.out.println("it is because (theLine.charAt(j) == '-' && j == theLine.length() - 1 && theMap.image[k-1][j] == 0 && theMap.image[k][j-1] == 0) now count is "+theMap.count);
 	        					}
 	        					else if(theLine.charAt(j) == '-' && j > 0 && theMap.image[k-1][j] == 0 && theMap.image[k][j-1] == 0 
 	        							&& j < theLine.length() - 1)//create a new one maybe
@@ -267,11 +268,11 @@ public class islands {
 	        				}
 	        			}
 	        			//countForThisLine = 1;
-	        			System.out.println("the " + k + " line has "+theMap.count + " islands");
+	        			//System.out.println("the " + k + " line has "+theMap.count + " islands");
 	        			k++;
 	        			
 	        		}
-	        		System.out.println( theMap.count + "  is the count ");
+	        		//System.out.println( theMap.count + "  is the count ");
 	        		imagesData.add(theMap);
 	        }
 		} catch (FileNotFoundException e) {
@@ -308,15 +309,22 @@ public class islands {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		long start = System.currentTimeMillis();
+		//long start = System.currentTimeMillis();
         String file = args[0];
         islands g = new islands(file);
-        for(int i = 0; i < g.imagesData.size(); i++)
-        {
-            System.out.println("" + g.imagesData.get(i).count);
+        try (PrintWriter out = new PrintWriter("testIslands_solution.txt")) {
+	        for(int i = 0; i < g.imagesData.size(); i++)
+	        {
+	            out.println("" + g.imagesData.get(i).count);
+	        }
+	        out.close();
         }
-        long end = System.currentTimeMillis();
-        System.out.println("using time is " + (end - start));
+        //long end = System.currentTimeMillis();
+        //System.out.println("using time is " + (end - start));
+        catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
