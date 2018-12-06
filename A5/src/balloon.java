@@ -119,7 +119,7 @@ public class balloon {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//long startTime = System.currentTimeMillis();
-        String file = args[0];
+        String file = "testBalloons.txt";
         balloon g = new balloon(file);
         int solutions[] = calSubset(g);
         try (PrintWriter out = new PrintWriter("testBalloons_solution.txt")) {

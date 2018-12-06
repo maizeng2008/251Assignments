@@ -310,7 +310,7 @@ public class islands {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//long start = System.currentTimeMillis();
-        String file = args[0];
+        String file = "testIslands.txt";
         islands g = new islands(file);
         try (PrintWriter out = new PrintWriter("testIslands_solution.txt")) {
 	        for(int i = 0; i < g.imagesData.size(); i++)
